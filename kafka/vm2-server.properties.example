@@ -1,0 +1,16 @@
+# VM2: KRaft Controller + Kafka Broker 1
+process.roles=broker,controller
+node.id=1
+controller.quorum.voters=1@VM2_ZEROTIER_IP:9093
+
+listeners=PLAINTEXT://VM2_ZEROTIER_IP:9092,CONTROLLER://VM2_ZEROTIER_IP:9093
+advertised.listeners=PLAINTEXT://VM2_ZEROTIER_IP:9092
+listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+inter.broker.listener.name=PLAINTEXT
+controller.listener.names=CONTROLLER
+
+log.dirs=/path/to/kafka-logs-vm2
+num.partitions=2
+default.replication.factor=2
+min.insync.replicas=1
+auto.create.topics.enable=false
