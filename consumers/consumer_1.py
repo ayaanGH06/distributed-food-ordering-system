@@ -25,6 +25,7 @@ def main():
     consumer = KafkaConsumer(
         args.topic,
         bootstrap_servers=args.bootstrap_servers.split(","),
+        api_version=(3, 6),
         group_id=args.group_id,
         auto_offset_reset="earliest",
         enable_auto_commit=False,
